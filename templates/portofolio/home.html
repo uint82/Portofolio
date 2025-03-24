@@ -1,0 +1,113 @@
+{% extends "portofolio/layout.html" %}
+
+{% block content %}
+<!-- Hero Section with Three.js -->
+<section class="py-5 bg-light">
+    <div class="content-container">
+        <div id="three-container" class="hero-section bg-light"></div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-5 bg-light">
+    <div class="content-container">
+        <h2 class="section-title fw-bold"></h2>
+        <div class="row align-items-center">
+            <div class="col-md-3 text-center">
+                {% if about.profile_image %}
+                <img src="{{ about.profile_image.url }}" alt="{{ about.name }}" class="img-fluid rounded-circle">
+                {% endif %}
+            </div>
+            <div class="col-md-9">
+                <h3>{{ about.name }}</h3>
+                <p>{{ about.title }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Work Section -->
+<section id="work" class="py-5 bg-light">
+    <div class="content-container">
+        <h2 class="section-title fw-bold">About Me</h2>
+        <p>{{ about.bio }}</p>
+        <a href="{% url 'project' %}" class="btn btn-primary mt-3">My portfolio &rarr;</a>
+    </div>
+</section>
+
+<!-- Bio Section -->
+<section id="bio" class="py-5 bg-light">
+    <div class="content-container">
+        <h2 class="section-title fw-bold">Bio</h2>
+        <div class="timeline">
+            {% for event in timeline_events %}
+            <div class="timeline-item">
+                <div class="timeline-year">
+                    {{ event.year }}{% if event.is_present %} to present{% endif %}
+                </div>
+                <div class="timeline-description">
+                    {{ event.description }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Tech Stack Section -->
+<section id="skills" class="py-5 bg-light">
+    <div class="content-container">
+        <h2 class="section-title fw-bold">Tech Stack</h2>
+        <div class="row">
+            {% for skill in skills %}
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        {% if skill.custom_icon %}
+                            <img src="{{ skill.custom_icon.url }}" alt="{{ skill.name }}" class="skill-icon mb-3">
+                        {% else %}
+                            <i class="{{ skill.icon }} fa-3x mb-3"></i>
+                        {% endif %}
+                        <h5 class="card-title">{{ skill.name }}</h5>
+                   </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- I Love Section -->
+<section id="i-love" class="py-5 bg-light">
+    <div class="content-container">
+        <h2 class="section-title fw-bold">I <i class="fas fa-heart text-danger"></i></h2>
+        <p>Music, Novel, Puzzle, Sports</p>
+    </div>
+</section>
+
+<!-- On the web Section -->
+<section id="on-the-web" class="py-5 bg-light">
+    <div class="content-container">
+        <h2 class="section-title fw-bold">On the web</h2>
+        <ul class="list-unstyled">
+            <li class="social-item">
+                <i class="fab fa-github text-primary social-icon"></i>
+                <a href="https://github.com/uint82" class="text-decoration-none" target="_blank">@uint82</a>
+            </li>
+            <li class="social-item">
+                <i class="fab fa-linkedin text-primary social-icon"></i>
+                <a href="https://linkedin.com/in/hilmi-abror-022123204/" class="text-decoration-none" target="_blank">@Hilmi abroor</a>
+            </li>
+            <li class="social-item">
+                <i class="fab fa-discord text-primary social-icon"></i>
+                <a href="https://discord.com" class="text-decoration-none" target="_blank">@samrobert11</a>
+            </li>
+            <li class="social-item">
+                <i class="fab fa-instagram text-primary social-icon"></i>
+                <a href="https://instagram.com/hilmiabroor" class="text-decoration-none" target="_blank">@hilmiabroor</a>
+            </li>
+        </ul>
+        <a href="{% url 'blogs' %}" class="btn btn-primary mt-3">My blogs &rarr;</a>
+    </div>
+    </section>
+{% endblock %}

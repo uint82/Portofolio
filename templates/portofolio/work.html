@@ -1,0 +1,44 @@
+{% extends "portofolio/layout.html" %}
+
+{% block content %}
+<section class="py-5 bg-light" style="min-height: 80vh;">
+    <div class="container">
+        <h2 class="text-center mb-5">Work Experience</h2>
+        
+        <div class="row">
+            {% for experience in work_experience %}
+            <div class="col-12 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            {% if experience.company_logo %}
+                            <div class="col-md-2 text-center">
+                                <img src="{{ experience.company_logo.url }}" alt="{{ experience.company }}" class="img-fluid company-logo">
+                            </div>
+                            {% endif %}
+                            <div class="col">
+                                <h3 class="card-title">{{ experience.position }}</h3>
+                                <h5 class="card-subtitle mb-2 text-muted">{{ experience.company }}</h5>
+                                <p class="card-text text-muted">
+                                    {{ experience.start_date|date:"M Y" }} - 
+                                    {% if experience.current %}
+                                        Present
+                                    {% else %}
+                                        {{ experience.end_date|date:"M Y" }}
+                                    {% endif %}
+                                </p>
+                                <p class="card-text">{{ experience.description|linebreaks }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p>No work experience added yet.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

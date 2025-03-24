@@ -1,0 +1,256 @@
+/* General styles */
+body {
+    padding-top: 56px; /* For fixed navbar */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-brand {
+  margin-left: 240px; 
+}
+
+
+.navbar-nav.ms-auto {
+  margin-right: 220px;
+}
+
+
+/* Hero section with Three.js canvas */
+.hero-section {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background-color: #1e1e1e;
+}
+
+/* Centered content container for all sections */
+.content-container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Section title with underline */
+.section-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.section-title:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  bottom: -8px;
+  left: 0;
+}
+
+/* Timeline/Bio styling */
+.timeline-item {
+  position: relative;
+  margin-bottom: 1rem;
+  padding-left: 150px;
+}
+
+.timeline-year {
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.timeline-description {
+  display: inline-block;
+}
+
+/* Social links styling */
+.social-item {
+  position: relative;
+  margin-bottom: 1rem;
+  padding-left: 30px;
+}
+
+.social-icon {
+  position: absolute;
+  left: 0;
+  width: 20px;
+  text-align: center;
+}
+
+/* Section styling */
+section {
+    padding: 80px 0;
+}
+
+section h2 {
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+section.py-5 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+section h2:after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    background-color: #007bff;
+    bottom: -10px;
+    left: 25%;
+}
+
+/* Project cards */
+.card {
+    box-shadow: 0 6px 10px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.skill-icon {
+    height: 48px;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Skill cards */
+.skill-rating {
+    margin-top: 10px;
+}
+
+
+/* logo styling */
+.logo-container {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.logo-icon {
+    height: 32px;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+
+
+/* Animation for page elements */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card, 
+section h2, 
+.about img,
+form {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+/* Light mode specific styles */
+:root,
+[data-bs-theme="light"] {
+    --bs-body-bg: rgb(240, 231, 219);
+    --bs-body-color: #333333;
+}
+
+[data-bs-theme="light"] .bg-light {
+    background-color: rgb(240, 231, 219) !important;
+}
+
+/* Dark mode specific styles */
+[data-bs-theme="dark"] {
+    --bs-body-bg: #121212;
+    --bs-body-color: #e6e6e6;
+}
+
+[data-bs-theme="dark"] .card {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+[data-bs-theme="dark"] .bg-light {
+    background-color: #1e1e1e !important;
+}
+
+[data-bs-theme="dark"] .text-muted {
+    color: #adb5bd !important;
+}
+
+/* Theme toggle button styling */
+#theme-toggle {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1.25rem;
+}
+
+#theme-toggle:focus {
+    box-shadow: none;
+}
+
+/* Three.js container styles */
+#three-container {
+    position: relative;
+    width: 100%;
+    height: 35vh;
+    overflow: hidden;
+    max-width: 100%;    
+    margin: 0 auto;
+}
+
+#three-container canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Blog detail styling */
+.blog-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.blog-content p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+/* Summary card styling */
+.blog-card-title {
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* Dark mode adjustments */
+[data-bs-theme="dark"] .blog-content {
+    color: #e6e6e6;
+}
+
+[data-bs-theme="dark"] .blog-card-title {
+    color: #e6e6e6;
+}

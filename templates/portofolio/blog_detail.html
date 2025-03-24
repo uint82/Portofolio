@@ -1,0 +1,42 @@
+{% extends "portofolio/layout.html" %}
+
+{% block content %}
+<section class="py-5 bg-light">
+    <div class="content-container">
+        <!-- Blog Post Header -->
+        <div class="mb-4">
+            <h1 class="display-5 fw-bold mb-3">{{ post.title }}</h1>
+            <p class="text-muted">
+                <i class="far fa-calendar-alt me-2"></i>{{ post.published_date|date:"F d, Y" }}
+            </p>
+        </div>
+
+        <!-- Featured Image -->
+        {% if post.featured_image %}
+        <div class="mb-4">
+            <img src="{{ post.featured_image.url }}" class="img-fluid rounded" alt="{{ post.title }}">
+        </div>
+        {% endif %}
+
+        <!-- Summary Section -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="blog-card-title mb-3">Summary</h5>
+                <p class="card-text">{{ post.summary }}</p>
+            </div>
+        </div>
+
+        <!-- Blog Content -->
+        <article class="blog-content">
+            {{ post.content|linebreaks }}
+        </article>
+
+        <!-- Back to Blogs button -->
+        <div class="mt-5">
+            <a href="{% url 'blogs' %}" class="btn btn-primary">
+                <i class="fas fa-arrow-left me-2"></i>Back to Blogs
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
