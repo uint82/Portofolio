@@ -24,7 +24,7 @@
                 <p><i class="fas fa-map-marker-alt"></i> Surabaya, Indonesia</p>
                 <div class="d-flex align-items-center">
                     {% if about.resume %}
-                    <a href="{{ about.resume.url }}" class="btn btn-primary me-3" download>
+                    <a href="{{ about.resume.url }}" class="btn me-3" style="background-color: #48A6A7; color: #FFFFFF;" download>
                         <i class="far fa-file-pdf me-1"></i>
                         <span>Resume</span>
                         <i class="fas fa-download ms-1"></i>
@@ -123,7 +123,7 @@
                         </a>
                         {% endif %}
                         {% if project.live_link %}
-                        <a href="{{ project.live_link }}" class="btn btn-primary btn-sm" target="_blank">
+                        <a href="{{ project.live_link }}" class="btn btn-sm" style="background-color: #48A6A7; color: #FFFFFF;" target="_blank">
                             <i class="fas fa-external-link-alt"></i> Live Demo
                         </a>
                         {% endif %}
