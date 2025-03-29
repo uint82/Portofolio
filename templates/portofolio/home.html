@@ -21,6 +21,26 @@
             <div class="col-md-9">
                 <h3>{{ about.name }}</h3>
                 <p>{{ about.title }}</p>
+                <p><i class="fas fa-map-marker-alt"></i> Surabaya, Indonesia</p>
+                <div class="d-flex align-items-center">
+                    {% if about.resume %}
+                    <a href="{{ about.resume.url }}" class="btn btn-primary me-3" download>
+                        <i class="far fa-file-pdf me-1"></i>
+                        <span>Resume</span>
+                        <i class="fas fa-download ms-1"></i>
+                    </a>                    
+                    {% endif %}
+                    <!-- Social media icons -->
+                    <a href="https://linkedin.com/in/hilmi-abror-022123204/" class="social-icon-link me-2" target="_blank">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                    </a>
+                    <a href="https://github.com/uint82" class="social-icon-link me-2" target="_blank">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                    <a href="https://instagram.com/hilmiabroor" class="social-icon-link" target="_blank">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                </div>            
             </div>
         </div>
     </div>
@@ -77,37 +97,42 @@
     </div>
 </section>
 
-<!-- I Love Section -->
-<section id="i-love" class="py-5 bg-light">
+<!-- Projects -->
+<section id="projects" class="py-5 bg-light">
     <div class="content-container">
-        <h2 class="section-title fw-bold">I <i class="fas fa-heart text-danger"></i></h2>
-        <p>Music, Novel, Puzzle, Sports</p>
+        <h2 class="section-title fw-bold">My Projects</h2>
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    {% if project.image %}
+                    <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ project.title }}</h5>
+                        <p class="card-text">{{ project.description }}</p>
+                        <p class="card-text"><small class="text-muted">{{ project.technology }}</small></p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0">
+                        {% if project.github_link %}
+                        <a href="{{ project.github_link }}" class="btn btn-outline-primary btn-sm me-2" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        {% endif %}
+                        {% if project.live_link %}
+                        <a href="{{ project.live_link }}" class="btn btn-primary btn-sm" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p>No projects added yet.</p>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </section>
-
-<!-- On the web Section -->
-<section id="on-the-web" class="py-5 bg-light">
-    <div class="content-container">
-        <h2 class="section-title fw-bold">On the web</h2>
-        <ul class="list-unstyled">
-            <li class="social-item">
-                <i class="fab fa-github text-primary social-icon"></i>
-                <a href="https://github.com/uint82" class="text-decoration-none" target="_blank">@uint82</a>
-            </li>
-            <li class="social-item">
-                <i class="fab fa-linkedin text-primary social-icon"></i>
-                <a href="https://linkedin.com/in/hilmi-abror-022123204/" class="text-decoration-none" target="_blank">@Hilmi abroor</a>
-            </li>
-            <li class="social-item">
-                <i class="fab fa-discord text-primary social-icon"></i>
-                <a href="https://discord.com" class="text-decoration-none" target="_blank">@samrobert11</a>
-            </li>
-            <li class="social-item">
-                <i class="fab fa-instagram text-primary social-icon"></i>
-                <a href="https://instagram.com/hilmiabroor" class="text-decoration-none" target="_blank">@hilmiabroor</a>
-            </li>
-        </ul>
-        <a href="{% url 'blogs' %}" class="btn btn-primary mt-3">My blogs &rarr;</a>
-    </div>
-    </section>
 {% endblock %}
