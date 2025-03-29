@@ -13,6 +13,17 @@ body {
   margin-right: 220px;
 }
 
+.btn-outline-custom {
+  color: #FFFFFF;
+  border-color: #48A6A7;
+}
+    
+.btn-outline-custom:hover {
+  color: #FFFFFF !important;
+  background-color: #48A6A7;
+  border-color: #48A6A7;
+}
+
 
 
 /* Hero section with Three.js canvas */
