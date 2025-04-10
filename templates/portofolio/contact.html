@@ -1,0 +1,109 @@
+{% extends "portofolio/layout.html" %}
+
+{% block content %}
+<section class="py-5 bg-light">
+    <div class="content-container">
+        <h2 class="text-center mb-5">Contact Me</h2>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }}" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        
+                        <form method="post" action="{% url 'contact' %}">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="{{ form.name.id_for_label }}" class="form-label">Name</label>
+                                {{ form.name }}
+                                {% if form.name.errors %}
+                                    <div class="text-danger">
+                                        {{ form.name.errors }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+                                {{ form.email }}
+                                {% if form.email.errors %}
+                                    <div class="text-danger">
+                                        {{ form.email.errors }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="{{ form.subject.id_for_label }}" class="form-label">Subject</label>
+                                {{ form.subject }}
+                                {% if form.subject.errors %}
+                                    <div class="text-danger">
+                                        {{ form.subject.errors }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="{{ form.message.id_for_label }}" class="form-label">Message</label>
+                                {{ form.message }}
+                                {% if form.message.errors %}
+                                    <div class="text-danger">
+                                        {{ form.message.errors }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary w-100" style="background-color: #48A6A7; border-color: #48A6A7;">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact info cards section -->
+        <div class="row mt-5 justify-content-center">
+            <div class="col-md-6 text-center mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="fas fa-envelope fa-3x mb-3" style="color: #48A6A7;"></i>
+                        <h5 class="card-title">Email</h5>
+                        <p class="card-text">
+                            <a href="mailto:abrorhilmi6@gmail.com" style="color: #48A6A7; text-decoration: none;">
+                                abrorhilmi6@gmail.com
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 text-center mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="fas fa-globe fa-3x mb-3" style="color: #48A6A7;"></i>
+                        <h5 class="card-title">Social Media</h5>
+                        <div class="d-flex justify-content-center">
+                            <a href="https://linkedin.com/in/hilmi-abror-022123204/" class="mx-2" style="color: #48A6A7;" target="_blank">
+                                <i class="fab fa-linkedin fa-lg"></i>
+                            </a>
+                            <a href="https://github.com/uint82" class="mx-2" style="color: #48A6A7;" target="_blank">
+                                <i class="fab fa-github fa-lg"></i>
+                            </a>
+                            <a href="https://instagram.com/hilmiabroor" class="mx-2" style="color: #48A6A7;" target="_blank">
+                                <i class="fab fa-instagram fa-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
