@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Project, Skill, About, WorkExperience, BlogPost, TimelineEvent  
+from markdownx.admin import MarkdownxModelAdmin
 
 @admin.register(TimelineEvent)
 class TimelineEventAdmin(admin.ModelAdmin):
@@ -27,7 +28,7 @@ class WorkExperienceAdmin(admin.ModelAdmin):
     search_fields = ('position', 'company')
 
 @admin.register(BlogPost)
-class BlogPostAdmin(admin.ModelAdmin):
+class BlogPostAdmin(MarkdownxModelAdmin):
     list_display = ('title', 'published_date', 'updated_date')
     prepopulated_fields = {'slug': ('title',)}
     search_fields = ('title', 'content')

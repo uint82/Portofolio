@@ -28,7 +28,7 @@
 
         <!-- Blog Content -->
         <article class="blog-content">
-            {{ post.content|linebreaks }}
+            {{ post.formatted_content|safe }}
         </article>
 
         <!-- Back to Blogs button -->

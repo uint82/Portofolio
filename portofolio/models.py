@@ -1,5 +1,8 @@
 
 from django.db import models
+from markdownx.models import MarkdownxField
+
+from .utils import custom_markdownify
 
 class Project(models.Model):
     title = models.CharField(max_length=200)
@@ -46,7 +49,7 @@ class WorkExperience(models.Model):
 class BlogPost(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
-    content = models.TextField()
+    content = MarkdownxField()
     summary = models.TextField()
     featured_image = models.ImageField(upload_to='blog/', blank=True)
     published_date = models.DateTimeField(auto_now_add=True)
@@ -54,6 +57,9 @@ class BlogPost(models.Model):
     
     def __str__(self):
         return self.title
+
+    def formatted_content(self):
+        return custom_markdownify(self.content)
 
 class TimelineEvent(models.Model):
     year = models.CharField(max_length=50)

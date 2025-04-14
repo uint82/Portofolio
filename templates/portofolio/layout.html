@@ -21,6 +21,7 @@
     <!-- Custom CSS -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'portofolio/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'your_app/css/code-highlighting.css' %}">
   </head>
   <body>
     <!-- Navigation -->
@@ -77,6 +78,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
     <!-- Dragg -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js">    </script>
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/     default.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <!-- Custom JS -->
     <script src="{% static 'portofolio/js/main.js' %}"></script>
   </body>
