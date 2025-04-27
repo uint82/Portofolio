@@ -2,7 +2,7 @@
 
 A clean, responsive Django-powered portfolio website featuring 3D objects, a blog system, and a contact page.
 
-![Portfolio Preview](https://via.placeholder.com/800x400?text=Portfolio+Preview)
+![image](https://github.com/user-attachments/assets/ae4060e0-bc41-42fc-8b9b-314e17c9fc6e)
 
 ## ✨ Features
 
