@@ -10,12 +10,14 @@ def home(request):
     skills = Skill.objects.all()
     timeline_events = TimelineEvent.objects.all().order_by('year')
     projects = Project.objects.all().order_by('-created_at')
+    work_experience = WorkExperience.objects.all().order_by('-start_date')
     
     context = {
         'about': about,
         'skills': skills,
         'timeline_events': timeline_events,
-        'projects': projects
+        'projects': projects,
+        'work_experience': work_experience
     }
     return render(request, 'portofolio/home.html', context)
 

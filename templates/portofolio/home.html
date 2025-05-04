@@ -74,6 +74,55 @@
     </div>
 </section>
 
+<!-- Work Section -->
+<section class="py-5 bg-light" style="min-height: 80vh;">
+    <div class="content-container">
+        <h2 class="section-title fw-bold">Work Experience</h2>
+
+        <div class="row">
+            {% for experience in work_experience %}
+            <div class="col-12 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Top row with logo, title, company, and dates -->
+                        <div class="row align-items-center mb-3">
+                            {% if experience.company_logo %}
+                            <div class="col-md-2 text-center">
+                                <img src="{{ experience.company_logo.url }}" alt="{{ experience.company }}" class="img-fluid company-logo">
+                            </div>
+                            {% endif %}
+                            <div class="col">
+                                <h3 class="card-title mb-1">{{ experience.position }}</h3>
+                                <h5 class="card-subtitle mb-1 text-muted">{{ experience.company }}</h5>
+                                <p class="card-text text-muted mb-0">
+                                    {{ experience.start_date|date:"M Y" }} -
+                                    {% if experience.current %}
+                                        Present
+                                    {% else %}
+                                        {{ experience.end_date|date:"M Y" }}
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Description in a separate row below -->
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="card-text">{{ experience.description|linebreaks }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p>No work experience added yet.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
 <!-- Tech Stack Section -->
 <section id="skills" class="py-5 bg-light">
     <div class="content-container">
